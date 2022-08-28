@@ -1,0 +1,29 @@
+#rendering {
+  display: flex;
+  width: 100%;
+}
+#rendering > section {
+  flex: 1;
+  min-height: 480px;
+}
+#answer-dialog {
+  text-align: center;
+}
+#answer code {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  background-color: blueviolet;
+  color: white;
+}
+
+.foldable-root > details > details .open-tag ~ details,
+.foldable-root > details > details .open-tag ~ details > .close-tag {
+  margin-left: 12px;
+}
+.foldable-root .leaf-tag {
+  margin-left: 24px;
+  display: block;
+}
+.foldable-root summary {
+  cursor: pointer;
+}

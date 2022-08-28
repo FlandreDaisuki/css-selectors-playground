@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selector Playground</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <main>
+    <div class="actions">
+      <input type="text" id="user-input">
+      <button id="collapse-btn">折疊</button>
+      <button id="answer-btn">對答案</button>
+      <button id="generate-btn">隨機出題</button>
+    </div>
+    <div id="rendering">
+      <section id="reactive"></section>
+      <section id="question"></section>
+    </div>
+  </main>
+  <dialog id="answer-dialog">
+    <form method="dialog">
+      <p id="answer"></p>
+      <button>關閉</button>
+    </form>
+  </dialog>
+  <script src="index.js"></script>
+</body>
+
+</html>
+
