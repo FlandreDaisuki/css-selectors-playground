@@ -110,10 +110,18 @@ const expandAllDOM = (foldableDOM) => {
  * @param {string} query
  **/
 const collapseUselessDOM = (foldableDOM, query) => {
-  expandAllDOM(foldableDOM);
-  for (const foldableEl of Array.from(foldableDOM.querySelectorAll('*'))) {
-    if (!foldableEl.querySelector(query) && foldableEl.detailsRef) {
-      foldableEl.detailsRef.open = false;
+  try {
+    expandAllDOM(foldableDOM);
+    for (const foldableEl of Array.from(foldableDOM.querySelectorAll('*'))) {
+      if (!foldableEl.querySelector(query) && foldableEl.detailsRef) {
+        foldableEl.detailsRef.open = false;
+      }
+    }
+  } catch (error) {
+    if (error instanceof DOMException) {
+      // ignore
+    } else {
+      throw error;
     }
   }
 };
@@ -220,7 +228,7 @@ const createNewQuestion = (query, html) => {
     answerDialogEl.showModal();
 
     const answerEl = document.getElementById('answer');
-    if(!lastUserInput) {
+    if (!lastUserInput) {
       return answerEl.innerHTML = '<h2>不要直接看答案，壞壞！</h2>';
     }
     const isOk = validateUserInput(reactiveFoldableDOM, lastUserInput, query);
